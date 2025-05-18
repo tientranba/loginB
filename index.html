@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nhập Mật Khẩu</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background: linear-gradient(to right, #ff9a9e, #fad0c4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            position: relative;
+        }
+        h1 {
+            color: #ff69b4;
+            margin-bottom: 20px;
+        }
+        input[type="password"] {
+    width: 80%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 2px solid #ff69b4;
+    border-radius: 15px;
+    font-size: 16px;
+    background-image: url('https://img.icons8.com/ios/50/000000/lock--v1.png');
+    background-repeat: no-repeat;
+    background-position: 5px center;
+    background-size: 20px 20px;
+    padding-left: 30px;
+    box-shadow: 0 0 10px rgba(255, 105, 180, 0.3);
+}
+        input[type="submit"] {
+            background-color: #ff69b4;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+        input[type="submit"]:hover {
+            background-color: #ff1493;
+        }
+        .container::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 100px;
+            background-image: url('https://img.icons8.com/color/100/000000/cute-cat.png');
+            background-size: cover;
+        }
+        .gif {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Nhập Mật Khẩu</h1>
+        <form onsubmit="return checkPassword(event)">
+            <input id="password" type="password" placeholder="Mật khẩu">
+            <br>
+            <input type="submit" value="Gửi">
+        </form>
+    </div>
+    <img src="./img/1.gif" class="gif" style="top: 75%; left: 10%;">
+    <img src="./img/3'.gif" class="gif" style="top: 75%; left: 80%;">
+    <img src="./img/download.gif" class="gif" style="top: 75%; left: 30%;">
+    <img src="./img/Bubu Dudu Dance Sticker - Bubu dudu Bubu Dudu - Descubre y comparte GIF.gif" class="gif" style="top: 75%; left: 50%;">
+
+    <script>
+        function checkPassword(event) {
+            event.preventDefault();
+            const correctPassword = "1"; 
+            const inputPassword = document.getElementById("password").value;
+
+            if (inputPassword === correctPassword) {
+                // Ẩn form đăng nhập, giữ nguyên layout
+                document.querySelector('.container').style.display = 'none';
+
+                Swal.fire({
+                    position: "center",
+                    icon: "success",
+                    title: "Chào mừng Mayyy.....",
+                    showConfirmButton: false,
+                    timer: 3000
+                });
+
+                setTimeout(() => {
+                    window.location.href = 'https://tientranba.github.io/bcake/';
+                }, 1500);
+            } else {
+                Swal.fire({
+                    icon: "error",
+                    title: "Sai mật khẩu rồi kìaaa",
+                    text: "Vui lòng nhập lại.",
+                    confirmButtonText: "OK"
+                });
+            }
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+</html>
